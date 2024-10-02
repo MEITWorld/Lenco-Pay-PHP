@@ -1,0 +1,22 @@
+{
+    "name": "meit/lenco",
+    "description": "An open source PHP SDK to interact with Lenco Pay's API",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^7.9"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lenco\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "David Nsai",
+            "homepage": "https://thinkmeit.com",
+            "role": "Developer"
+        }
+    ]
+}
