@@ -18,7 +18,7 @@ class Collections
         $this->privateKey = $privateKey;
     }
 
-    public function getCollection(string $paymentReference): string
+    public function getCollection(string $paymentReference): object
     {
         $response = $this->client->request('GET', 'https://api.lenco.co/access/v2/collections/status/' . $paymentReference, [
             'headers' => [
@@ -28,7 +28,7 @@ class Collections
         ]);
 
         $body = $response->getBody();
-        $jsonData = json_decode($body, true);
+        $jsonData = json_decode($body);
         return $jsonData;
     }
 }
