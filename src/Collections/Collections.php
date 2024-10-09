@@ -20,13 +20,15 @@ class Collections
 
     public function getCollection(string $paymentReference): string
     {
-        $response = $this->client->request('GET', 'https://api.lenco.co/access/v2/collections/status/'.$paymentReference, [
+        $response = $this->client->request('GET', 'https://api.lenco.co/access/v2/collections/status/' . $paymentReference, [
             'headers' => [
-                'Authorization' => 'Bearer '.$this->privateKey,
+                'Authorization' => 'Bearer ' . $this->privateKey,
                 'accept' => 'application/json',
             ],
         ]);
 
-        return $response->getBody();
+        $body = $response->getBody();
+        $jsonData = json_decode($body, true);
+        return $jsonData;
     }
 }
